@@ -27,8 +27,11 @@ EventFrame:SetScript("OnEvent", function(self, event, ...)
 		local frames = LFGListFrame.SearchPanel.ScrollBox:GetView():GetFrames();
 		-- Loop through all groups/listings
 		for _, frame in ipairs(frames) do
-			-- Set DoubleClick event handler
-			frame:SetScript("OnDoubleClick", OnDoubleClick)
+			-- Ensure the frame actually has a double click hook
+			if (frame.OnDoubleClick) then
+				-- Set DoubleClick event handler
+				frame:SetScript("OnDoubleClick", OnDoubleClick)
+			end
 		end
 	end
 end)
