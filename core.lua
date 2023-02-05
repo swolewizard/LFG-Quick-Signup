@@ -1,17 +1,17 @@
 -- Declare function to automatically apply to a group
-local function SignUp(self)
+local function SignUp(button)
 	-- Click the "SignUp" Button on the LFG frame
-	LFGListSearchPanel_SignUp(self:GetParent():GetParent():GetParent())
+	LFGListSearchPanel_SignUp(button:GetParent():GetParent():GetParent())
 	-- Click the "SignUp" Button on the Role Select dialog
 	LFGListApplicationDialog.SignUpButton:Click()
 end
 
 -- Declare DoubleClick event handler function
-local function OnDoubleClick(self)
+local function OnDoubleClick(button, buttonName)
 	-- When the player is not in a group, or is the leader of the group
-	if (IsInGroup() ~= true or UnitIsGroupLeader("player") == true) then
+	if (buttonName == "LeftButton" and (IsInGroup() ~= true or UnitIsGroupLeader("player") == true)) then
 		-- Run function to apply to the group
-		SignUp(self)
+		SignUp(button)
 	end
 end
 
