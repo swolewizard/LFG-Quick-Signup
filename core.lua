@@ -15,6 +15,14 @@ local function OnDoubleClick(button, buttonName)
 	end
 end
 
+local function AddDoubleClickHook(frame)
+	frame:SetScript("OnDoubleClick", OnDoubleClick)
+end
+
+local function LogError(msg)
+	error("Failed to set double click script")
+end
+
 -- Create EventFrame
 local EventFrame = CreateFrame("Frame", "EventFrame")
 -- Add Event Handler for LFG Search Results Displayed
@@ -27,11 +35,8 @@ EventFrame:SetScript("OnEvent", function(self, event, ...)
 		local frames = LFGListFrame.SearchPanel.ScrollBox:GetView():GetFrames();
 		-- Loop through all groups/listings
 		for _, frame in ipairs(frames) do
-			-- Ensure the frame actually has a double click hook
-			if (frame.OnDoubleClick) then
-				-- Set DoubleClick event handler
-				frame:SetScript("OnDoubleClick", OnDoubleClick)
-			end
+			-- Set DoubleClick event handler but log any errors
+			xpcall(AddDoubleClickHook, LogError, frame)
 		end
 	end
 end)
