@@ -1,0 +1,7 @@
+{
+	"Lua.diagnostics.globals": [
+		"LFGListSearchPanel_SignUp",
+		"LFGListApplicationDialog",
+		"LFGListFrame"
+	]
+}
