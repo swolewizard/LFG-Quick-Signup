@@ -1,5 +1,7 @@
 -- Declare function to automatically apply to a group
 local function SignUp(button)
+	-- If an application is already open, do not continue
+	if (button.isApplication) then return end
 	-- Click the "SignUp" Button on the LFG frame
 	LFGListSearchPanel_SignUp(button:GetParent():GetParent():GetParent())
 	-- Click the "SignUp" Button on the Role Select dialog
