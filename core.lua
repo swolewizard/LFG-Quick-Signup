@@ -29,6 +29,7 @@ end
 local EventFrame = CreateFrame("Frame", "EventFrame")
 -- Add Event Handler for LFG Search Results Displayed
 EventFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED")
+EventFrame:RegisterEvent("LFG_ROLE_CHECK_SHOW")
 -- Set function for event
 EventFrame:SetScript("OnEvent", function(self, event, ...)
 	-- Only continue if event matches exactly
@@ -40,5 +41,8 @@ EventFrame:SetScript("OnEvent", function(self, event, ...)
 			-- Set DoubleClick event handler but log any errors
 			xpcall(AddDoubleClickHook, LogError, frame)
 		end
+	elseif (event == "LFG_ROLE_CHECK_SHOW") then
+		-- Complete the role check if somebody else in your group applies to an LFG group
+		CompleteLFGRoleCheck(true)
 	end
 end)
