@@ -1,4 +1,4 @@
-## Interface: 100207
+## Interface: 120000
 ## Title: LFG Quick Signup
 
 core.lua
