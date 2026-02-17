@@ -1,4 +1,19 @@
-## Interface: 120000
+## Interface: 120001
 ## Title: LFG Quick Signup
+## Author: Huntardz
+## Version: 2.2
+## Notes: DoubleClick to join LFG listings, that simple
+## IconTexture: Interface\AddOns\LFG Quick Signup\Icon\LFGQuickSignuplogo32
+## Category-enUS: User Interface
+## Category-deDE: Benutzerinterface
+## Category-esES: Interfaz de usuario
+## Category-esMX: Interfaz de usuario
+## Category-frFR: Interface utilisateur
+## Category-itIT: Interfaccia utente
+## Category-koKR: 사용자 인터페이스
+## Category-ptBR: Interface do usuário
+## Category-ruRU: Интерфейс пользователя
+## Category-zhCN: 用户界面
+## Category-zhTW: 使用者介面
 
 core.lua
